@@ -6,9 +6,10 @@
 *******************************************/
 
 #include "Math.h"
+#include "register_plugins.h"
 
 int twoSum(int a, int b){
-    return a+b;
+    return a+b+10;
 }
 
 void clean(void){

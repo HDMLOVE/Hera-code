@@ -8,6 +8,8 @@
 #ifndef HERA_CODE_REGISTER_PLUGINS_H
 #define HERA_CODE_REGISTER_PLUGINS_H
 
+#include <stdio.h>
+
 struct mod_private{
     const char *name;
     int (*init)(int, int);
@@ -18,7 +20,7 @@ struct mod_private{
 #define register_plugin_fn(modname, initfn, cleanfn) \
         struct mod_private *register_declare_##modname(void) \
         {                                            \
-            static mod_private mod = {               \
+            static struct mod_private mod = {               \
             .name = #modname,                        \
             .init = initfn,                          \
             .clean = cleanfn,                        \
