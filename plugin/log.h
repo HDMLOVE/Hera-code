@@ -2,7 +2,7 @@
  * Filename : log.h
  * Time     : 2021-06-12 15:30
  * Author   : 小骆
- * Dcription: 
+ * Dcription: 日志库
 *******************************************/
 
 #ifndef HERA_CODE_LOG_H
