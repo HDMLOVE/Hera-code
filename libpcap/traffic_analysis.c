@@ -40,6 +40,14 @@ void stop_work(int sig){
     return ;
 }
 
+static void parse_ip_pkt(const u_char *sp, bpf_u_int32 len){
+    ip_hdr *ih = (ip_hdr*)(sp);
+    printf("ihl:[%d], version:[%d], tos:[%d], tot_len:[%u], id:[%d]"
+           "frag_off:[%d] ttl:[%d], protocol:[%d]\n",
+           ih->ihl, ih->version, ih->tos, ntohs(ih->tot_len), ntohs(ih->id),
+           ih->frag_off, ih->ttl, ih->protocol);
+}
+
 static void Packet_handle(u_char *user, const struct pcap_pkthdr *h, u_char *sp){
 
     pcap_dumpe_t *dumper = (pcap_dumper_t *)user;
