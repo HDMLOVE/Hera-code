@@ -20,6 +20,7 @@ typedef struct _eth_hdr
     unsigned short eth_type; //以太网类型
 }eth_hdr;
 
+
 //IP头部，总长度20字节
 typedef struct _ip_hdr
 {
