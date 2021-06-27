@@ -13,7 +13,7 @@
 #include <sys/types.h>
 
 #include <signal.h>
-#include <pcap>
+#include <pcap.h>
 
 #include "traffic_analysis.h"
 
@@ -33,7 +33,9 @@ int packet_num = 0;
  * */
 void stop_work(int sig){
     if(SIGINT == sig){
-        is_loop_break = 1;
+        if(g_pcap != NULL){
+            pcap_breakloop(g_pcap);
+        }
     }
     return ;
 }
@@ -124,7 +126,7 @@ int main(int argc, char *argv[]){
 // 释放资源
 ERR:
     if(dumper != NULL){
-        pcap_dump_open(dumper);
+        pcap_dump_close(dumper);
     }
     if (handle != NULL){
         pcap_close(handle);
