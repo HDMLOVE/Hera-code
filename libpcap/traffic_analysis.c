@@ -5,7 +5,15 @@
  * Dcription: 
 *******************************************/
 
-#include<signal.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <limits.h>
+#include <unistd.h>
+#include <errno.h>
+#include <sys/types.h>
+
+#include <signal.h>
+#include <pcap>
 
 #include "traffic_analysis.h"
 
@@ -37,9 +45,6 @@ static void Packet_handle(u_char *user, const struct pcap_pkthdr *h, u_char *sp)
     bpf_u_int32 len = h->caplen;
 
     eth_hdr *eh = (eth_hdr*)sp;
-
-    char dst_mac[17], src_mac[17];
-    eh->eth_type = ntohs(eh->);
 
     pcap_dump(user, h, sp);
     pcap_dump_flush(dumper);
