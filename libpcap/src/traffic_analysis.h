@@ -23,8 +23,8 @@ typedef struct _eth_hdr
 //IP头部，总长度20字节
 typedef struct _ip_hdr
 {
-    unsigned char version : 4, //版本
-	unsigned char ihl : 4;   //首部长度
+    unsigned char version:4; //版本
+	unsigned char ihl:4;   //首部长度
     unsigned char tos;   //服务类型
     unsigned short tot_len; //总长度
     unsigned short id;    //标志
