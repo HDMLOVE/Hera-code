@@ -16,7 +16,6 @@
 #include <pcap.h>
 
 #include "traffic_analysis.h"
-#include "ethernet_header.h"
 
 //是否退出主循环标志位 0表示循环收包解析，1表示退出循环程序结束
 int is_loop_break = 0;
