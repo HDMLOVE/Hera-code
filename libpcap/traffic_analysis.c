@@ -16,7 +16,7 @@
 #include <pcap.h>
 
 #include "traffic_analysis.h"
-#include "ethnet_header.h"
+#include "ethernet_header.h"
 
 //是否退出主循环标志位 0表示循环收包解析，1表示退出循环程序结束
 int is_loop_break = 0;
@@ -51,7 +51,7 @@ static void parse_ip_pkt(const u_char *sp, bpf_u_int32 len){
 }
 
 static void Packet_handle(u_char *user, const struct pcap_pkthdr *h, u_char *sp){
-
+    packet_num++;
     pcap_dumper_t *dumper = (pcap_dumper_t *)user;
 
     bpf_u_int32 len = h->caplen;
