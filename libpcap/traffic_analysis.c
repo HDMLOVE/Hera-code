@@ -47,6 +47,7 @@ static void parse_ip_pkt(const u_char *sp, bpf_u_int32 len){
            "frag_off:[%d] ttl:[%d], protocol:[%d]\n",
            ih->ihl, ih->version, ih->tos, ntohs(ih->tot_len), ntohs(ih->id),
            ih->frag_off, ih->ttl, ih->protocol);
+    return ;
 }
 
 static void Packet_handle(u_char *user, const struct pcap_pkthdr *h, u_char *sp){
@@ -56,7 +57,7 @@ static void Packet_handle(u_char *user, const struct pcap_pkthdr *h, u_char *sp)
     bpf_u_int32 len = h->caplen;
 
     eth_hdr *eh = (eth_hdr*)sp;
-
+    parse_ip_pkt(sp+sizeof(eth_hdr), len - sizeof(eth_hdr));
     pcap_dump(user, h, sp);
     pcap_dump_flush(dumper);
 
