@@ -42,9 +42,8 @@ void stop_work(int sig){
 
 static void parse_ip_pkt(const u_char *sp, bpf_u_int32 len){
     ip_hdr *ih = (ip_hdr*)(sp);
-    printf("version:[%d], ihl:[%d], tot_len:[%u]"
-           "ttl:[%d], protocol:[%02x]\n",
-           ih->ihl, ih->version, ntohs(ih->tot_len),ih->ttl, ih->protocol);
+    printf("version:[%d], tot_len:[%u] ttl:[%d], protocol:[%02x]\n",
+           ih->version, ntohs(ih->tot_len), ih->ttl, ih->protocol);
     return ;
 }
 
