@@ -1,13 +1,19 @@
+/******************************************
+ * Filename : traffic_analysis.h
+ * Time     : 2021-06-27 12:00
+ * Author   : 小骆
+ * Dcription:
+*******************************************/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <limits.h>
 #include <unistd.h>
 #include <errno.h>
 #include <sys/types.h>
-
 #include <signal.h>
-#include <pcap.h>
 
+#include <pcap.h>
 #include "traffic_analysis.h"
 
 pcap_t *g_pcap = NULL;
