@@ -71,7 +71,7 @@ typedef struct _tcp_hdr
 #ifdef __LITTLE_ENDIAN_BITFIELD
     unsigned char reserved_1:4; //保留6位中的4位首部长度
     unsigned char thl:4;        //tcp头部长度
-    unsigned char flag:6;       //6位标志
+    unsigned char flag:6;    //6位标志
 	unsigned char reseverd_2:2; //保留6位中的2位
 #else
     unsigned char thl:4;        //tcp头部长度
